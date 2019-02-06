@@ -9,7 +9,7 @@ https://www.uplabs.com/nashatwork
 ![preview](https://user-images.githubusercontent.com/16761273/52356391-20f71e00-2a5a-11e9-84f4-c470e89c6f78.gif)
 
 ## Implemented Design
-![ezgif com-video-to-gif 1](https://user-images.githubusercontent.com/16761273/52116345-ea269f80-2636-11e9-9141-95b6420f754f.gif)
+![ezgif com-optimize 2](https://user-images.githubusercontent.com/16761273/52357878-f3f83a80-2a5c-11e9-996a-089209895a3e.gif)
 
 ## Concept Used
 1. Animations
