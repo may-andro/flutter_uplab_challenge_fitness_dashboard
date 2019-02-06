@@ -1,9 +1,9 @@
-# Dribble Challenge
+# UpLabs Challenge
 
-A new Flutter application based on Dribble Challenge at : https://dribbble.com/shots/4136007-Mobile-UI-Design.
+A new Flutter application based on Dribble Challenge at : https://www.uplabs.com/posts/home-to-start-activity.
 
 ## Design Credit
-https://dribbble.com/aakashsarvaiya1
+https://www.uplabs.com/nashatwork
 
 ## Expected Design
 ![adidas](https://user-images.githubusercontent.com/16761273/52116371-f90d5200-2636-11e9-8292-b7ac0b9e680e.png)
