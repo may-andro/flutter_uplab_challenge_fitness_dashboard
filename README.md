@@ -6,7 +6,7 @@ A new Flutter application based on Dribble Challenge at : https://www.uplabs.com
 https://www.uplabs.com/nashatwork
 
 ## Expected Design
-![adidas](https://user-images.githubusercontent.com/16761273/52116371-f90d5200-2636-11e9-8292-b7ac0b9e680e.png)
+![preview](https://user-images.githubusercontent.com/16761273/52356391-20f71e00-2a5a-11e9-84f4-c470e89c6f78.gif)
 
 ## Implemented Design
 ![ezgif com-video-to-gif 1](https://user-images.githubusercontent.com/16761273/52116345-ea269f80-2636-11e9-9141-95b6420f754f.gif)
