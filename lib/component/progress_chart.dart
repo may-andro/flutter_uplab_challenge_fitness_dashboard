@@ -2,13 +2,13 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_login_dribble_app/model/weight_entry.dart';
+import 'package:flutter_login_dribble_app/model/graph_entry.dart';
 import 'package:intl/intl.dart';
 import 'package:tuple/tuple.dart';
 
 class ProgressChart extends StatelessWidget {
   static const int NUMBER_OF_DAYS = 5;
-  final List<WeightEntry> entries;
+  final List<GraphEntry> entries;
 
   ProgressChart(this.entries);
 
@@ -19,9 +19,9 @@ class ProgressChart extends StatelessWidget {
     );
   }
 
-  List<WeightEntry> _prepareEntryList(List<WeightEntry> initialEntries) {
+  List<GraphEntry> _prepareEntryList(List<GraphEntry> initialEntries) {
     DateTime beginningDate = _getStartDateOfChart();
-    List<WeightEntry> entries = initialEntries
+    List<GraphEntry> entries = initialEntries
         .where((entry) => entry.dateTime.isAfter(beginningDate))
         .toList();
     if (_isMissingEntryFromBeginningDate(beginningDate, entries) &&
@@ -35,14 +35,14 @@ class ProgressChart extends StatelessWidget {
   ///
   /// If user has not put entry on the date which is first date of a chart,
   /// it takes last known weight before that date and estimates linearly weight on the beginning date.
-  /// Then it creates and adds fake [WeightEntry] with that weight and date.
-  void _addFakeEntryOnTheChartBeginning(List<WeightEntry> initialEntries,
-      List<WeightEntry> entries, DateTime beginningDate) {
-    List<WeightEntry> entriesNotInChart =
+  /// Then it creates and adds fake [GraphEntry] with that weight and date.
+  void _addFakeEntryOnTheChartBeginning(List<GraphEntry> initialEntries,
+      List<GraphEntry> entries, DateTime beginningDate) {
+    List<GraphEntry> entriesNotInChart =
         initialEntries.where((entry) => !entries.contains(entry)).toList();
-    WeightEntry firstEntryAfterBeginning = entries.last;
-    WeightEntry lastEntryBeforeBeginning = entriesNotInChart.first;
-    WeightEntry fakeEntry = new WeightEntry(
+    GraphEntry firstEntryAfterBeginning = entries.last;
+    GraphEntry lastEntryBeforeBeginning = entriesNotInChart.first;
+    GraphEntry fakeEntry = new GraphEntry(
         beginningDate,
         _calculateWeightOnBeginningDate(
             lastEntryBeforeBeginning, firstEntryAfterBeginning, beginningDate),
@@ -51,7 +51,7 @@ class ProgressChart extends StatelessWidget {
   }
 
   bool _isMissingEntryFromBeginningDate(
-      DateTime beginningDate, List<WeightEntry> entries) {
+      DateTime beginningDate, List<GraphEntry> entries) {
     return !entries.any((entry) =>
         entry.dateTime.day == beginningDate.day &&
         entry.dateTime.month == beginningDate.month &&
@@ -59,12 +59,12 @@ class ProgressChart extends StatelessWidget {
   }
 
   bool _isAnyEntryBeforeBeginningDate(
-      DateTime beginningDate, List<WeightEntry> entries) {
+      DateTime beginningDate, List<GraphEntry> entries) {
     return entries.any((entry) => entry.dateTime.isBefore(beginningDate));
   }
 
-  double _calculateWeightOnBeginningDate(WeightEntry lastEntryBeforeBeginning,
-      WeightEntry firstEntryAfterBeginning, DateTime beginningDate) {
+  double _calculateWeightOnBeginningDate(GraphEntry lastEntryBeforeBeginning,
+      GraphEntry firstEntryAfterBeginning, DateTime beginningDate) {
     DateTime firstEntryDateTime =
         _copyDateWithoutTime(firstEntryAfterBeginning.dateTime);
     DateTime lastEntryDateTime =
@@ -89,7 +89,7 @@ class ProgressChart extends StatelessWidget {
 }
 
 class ChartPainter extends CustomPainter {
-  final List<WeightEntry> entries;
+  final List<GraphEntry> entries;
 
   ChartPainter(this.entries);
 
@@ -235,7 +235,7 @@ class ChartPainter extends CustomPainter {
   }
 
   ///Produces minimal and maximal value of horizontal line that will be displayed
-  Tuple2<int, int> _getMinAndMaxValues(List<WeightEntry> entries) {
+  Tuple2<int, int> _getMinAndMaxValues(List<GraphEntry> entries) {
     double maxWeight = entries.map((entry) => entry.weight).reduce(math.max);
     double minWeight = entries.map((entry) => entry.weight).reduce(math.min);
 
@@ -252,7 +252,7 @@ class ChartPainter extends CustomPainter {
   }
 
   /// Calculates offset at which given entry should be painted
-  Offset _getEntryOffset(WeightEntry entry, DateTime beginningOfChart,
+  Offset _getEntryOffset(GraphEntry entry, DateTime beginningOfChart,
       int minLineValue, int maxLineValue) {
     int daysFromBeginning = entry.dateTime.difference(beginningOfChart).inDays;
     double relativeXposition = daysFromBeginning / ProgressChart.NUMBER_OF_DAYS;

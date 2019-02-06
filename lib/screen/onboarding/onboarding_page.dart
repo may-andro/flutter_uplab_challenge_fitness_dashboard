@@ -3,7 +3,7 @@ import 'package:flutter_login_dribble_app/component/dots_indicator.dart';
 import 'package:flutter_login_dribble_app/component/progress_chart.dart';
 import 'package:flutter_login_dribble_app/component/triangle_top_blue_header.dart';
 import 'package:flutter_login_dribble_app/component/triangle_top_header.dart';
-import 'package:flutter_login_dribble_app/model/weight_entry.dart';
+import 'package:flutter_login_dribble_app/model/graph_entry.dart';
 import 'package:flutter_login_dribble_app/screen/onboarding/onboarding_animation.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -451,11 +451,11 @@ final List<DailyActivityModel> activityList = [
       valueUnitList: [UnitValueModel(value: "234", unit: "cal")])
 ];
 
-final List<WeightEntry> entriesList = [
-  WeightEntry(DateTime.now(), 23, ""),
-  WeightEntry(DateTime.now().subtract(Duration(days: 1)), 25, ""),
-  WeightEntry(DateTime.now().subtract(Duration(days: 2)), 43, ""),
-  WeightEntry(DateTime.now().subtract(Duration(days: 3)), 12, ""),
-  WeightEntry(DateTime.now().subtract(Duration(days: 4)), 33, ""),
-  WeightEntry(DateTime.now().subtract(Duration(days: 5)), 22, ""),
+final List<GraphEntry> entriesList = [
+  GraphEntry(DateTime.now(), 23, ""),
+  GraphEntry(DateTime.now().subtract(Duration(days: 1)), 25, ""),
+  GraphEntry(DateTime.now().subtract(Duration(days: 2)), 43, ""),
+  GraphEntry(DateTime.now().subtract(Duration(days: 3)), 12, ""),
+  GraphEntry(DateTime.now().subtract(Duration(days: 4)), 33, ""),
+  GraphEntry(DateTime.now().subtract(Duration(days: 5)), 22, ""),
 ];
