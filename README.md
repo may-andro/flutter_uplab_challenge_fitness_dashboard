@@ -1,6 +1,6 @@
 # UpLabs Challenge
 
-A new Flutter application based on Dribble Challenge at : https://www.uplabs.com/posts/home-to-start-activity.
+A new Flutter application based on Uplabs Challenge at : https://www.uplabs.com/posts/home-to-start-activity.
 
 ## Design Credit
 https://www.uplabs.com/nashatwork
